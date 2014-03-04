@@ -3,6 +3,10 @@
   "manifest_version" : 2,
   "description"      : "Replace text in webpages for lulz. Currently it has a fixed set of replacements, but I will soon update this to allow users to set their own replacements.",
   "version"          : "1.0",
+  "icons": {
+      "128" : "icon_128.png",
+      "32"  : "icon_32.png"
+   },
   "permissions" : [
     "tabs", "http://*/*"
   ],
