@@ -1,0 +1,5 @@
+- icon
+  - turn on/off through icon
+- control panel
+  - turn on/off through control panel
+  - modify replacement table through control panel

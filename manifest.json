@@ -9,8 +9,8 @@
   "content_scripts" : [
     {
       "matches" : ["http://*/*"],
-      "js"      :["insanitizer.js"],
-      "run_at"  :"document_end"
+      "js"      : ["insanitizer.js"],
+      "run_at"  : "document_end"
     }
   ]
 }
