@@ -1,0 +1,16 @@
+{
+  "name"             : "Insanitizer",
+  "manifest_version" : 2,
+  "description"      : "Replace text in webpages for lulz. Currently it has a fixed set of replacements, but I will soon update this to allow users to set their own replacements.",
+  "version"          : "1.0",
+  "permissions" : [
+    "tabs", "http://*/*"
+  ],
+  "content_scripts" : [
+    {
+      "matches" : ["http://*/*"],
+      "js"      :["insanitizer.js"],
+      "run_at"  :"document_end"
+    }
+  ]
+}
