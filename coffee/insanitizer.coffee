@@ -69,7 +69,7 @@ processElement = (elem, depth)->
   execWhenFree (()->
     if (elem.nodeType is _NT.TEXT_NODE)
       nodeVal = elem.nodeValue
-      for replacement in replacementMap
+      for replacement of replacementMap
         #pattern is replacementMap[replacement]
         nodeVal = nodeVal.replace replacementMap[replacement], replacement
       elem.nodeValue = nodeVal
@@ -79,6 +79,8 @@ processElement = (elem, depth)->
         processElement child, depth++
     ), 1
 
-  #Never written a chrome extension and don't want it crapping out on people.
-  if isExtensionOn and window?.document?.documentElement
-    processElement window.document.documentElement
+#Never written a chrome extension and don't want it crapping out on people.
+console.log "Here we go"
+if isExtensionOn and window?.document?.documentElement
+  console.log "Start processing!"
+  processElement window.document.documentElement
