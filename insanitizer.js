@@ -1,5 +1,6 @@
 (
   function(){
+    var isExtensionOn = true;
     //maximum tree depth to traverse
     var _MAX_DEPTH = 20;
     //TODO: Put this in a file? Let folks specify their own replacements
@@ -71,10 +72,12 @@
 
       execWhenFree(function(){
         if (elem.nodeType === _NT.TEXT_NODE){
+          var nodeVal = elem.nodeValue;
           for(var replacement in replacementMap){
             //pattern is replacementMap[replacement]
-            elem.textContent = elem.textContent.replace(replacementMap[replacement], replacement);
+            nodeVal = nodeVal.replace(replacementMap[replacement], replacement);
           }
+          elem.nodeValue = nodeVal;
         }else{
           var children = elem.childNodes;
           for(var i = 0, l = children.length; i < l; i++){
@@ -85,7 +88,7 @@
     }
 
     //Never written a chrome extension and don't want it crapping out on people.
-    if(window && window.document && window.document.documentElement)
+    if(isExtensionOn and window && window.document && window.document.documentElement)
       processElement(window.document.documentElement);
 
     //EOF

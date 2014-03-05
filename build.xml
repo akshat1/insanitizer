@@ -1,0 +1,30 @@
+<project name="insanitizer" default="build">
+  <description>
+    Chrome extension for lulz.
+  </description>
+  <target name="init" description="Initialise directory structure.">
+    <mkdir dir="build"/>
+  </target>
+  <target name="compile-coffee" depends="init" description="Compile coffee to js">
+    <apply executable="coffee" failonerror="true" parallel="true">
+      <arg value="-o" />
+      <arg value="build" />
+      <arg value="-c" />
+      <fileset dir="coffee" includes="*.coffee"/>
+    </apply>
+  </target>
+  <target name="copy-assets" depends="init" description="Copy various assets to build directory.">
+    <copy todir="build">
+      <fileset dir="assets">
+        <include name="*.png"/>
+      </fileset>
+    </copy>
+    <copy file="manifest.json" tofile="build/manifest.json"/>
+  </target>
+  <target name="compile" depends="compile-coffee" description="Compile coffee, haml, sass">
+  </target>
+  <target name="build" depends="compile,copy-assets" description="Build unpacked extension.">
+  </target>
+  <target name="package" depends="build" description="Compress build directory into zip for upload">
+  </target>
+</project>

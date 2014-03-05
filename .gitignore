@@ -1,0 +1,12 @@
+# OS generated files.
+.DS_Store
+Thumbs.db
+ehthumbs.db
+.directory
+
+# Sublime project files
+insanitizer.sublime-project
+insanitizer.sublime-workspace
+
+# Compilation artifacts
+/build
