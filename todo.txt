@@ -3,3 +3,6 @@
 - control panel
   - turn on/off through control panel
   - modify replacement table through control panel
+
+- build
+  - implement package task
