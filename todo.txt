@@ -4,4 +4,4 @@
   - modify replacement table through control panel
 
 - build
-  - implement package task
+  - add build number, timestamp to build artifacts.

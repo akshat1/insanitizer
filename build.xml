@@ -3,6 +3,7 @@
     Chrome extension for lulz.
   </description>
   <target name="clean" description="Remove all generated artifacts.">
+    <delete file="insanitizer_dist.zip"/>
     <delete dir="build" />
   </target>
   <target name="init" description="Initialise directory structure.">
@@ -53,5 +54,7 @@
   <target name="build" depends="compile,copy-assets" description="Build unpacked extension.">
   </target>
   <target name="package" depends="build" description="Compress build directory into zip for upload">
+    <zip basedir="build" destfile="insanitizer_dist.zip">
+    </zip>
   </target>
 </project>

@@ -10,3 +10,6 @@ insanitizer.sublime-workspace
 
 # Compilation artifacts
 /build
+
+# Distro
+insanitizer_dist.zip
