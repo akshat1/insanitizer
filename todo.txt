@@ -1,10 +1,6 @@
 - fix the overall algorithm
   - capitalization
-  - fix regexes to replace words and not word fragments
-- icon
-  - turn on/off through icon
-- control panel
-  - turn on/off through control panel
+- Popup
   - modify replacement table through control panel
 
 - build

@@ -1,0 +1,12 @@
+$popup-width: 200px
+$popup-height: 300px
+
+#i-popup
+  background : aliceblue
+  height     : $popup-height
+  width      : $popup-width
+  &.busy
+    background : url(ajax-loader.gif) no-repeat center center
+
+  button[disabled]
+    opacity : 0.7

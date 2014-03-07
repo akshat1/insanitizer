@@ -7,15 +7,24 @@
   "icons": {
       "128" : "icon_128.png",
       "32"  : "icon_32.png"
-   },
+  },
   "permissions" : [
-    "tabs", "http://*/*"
+    "tabs", "http://*/*", "storage"
   ],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts" : [
     {
       "matches" : ["http://*/*"],
-      "js"      : ["insanitizer.js"],
+      "js"      : ["insanitizer-contentscript.js"],
       "run_at"  : "document_end"
     }
-  ]
+  ],
+  "browser_action" : {
+    "default_icon"  : "icon_32.png",
+    "default_popup" : "popup.html"
+  },
+  "background" : {
+    "persistent" : false,
+    "scripts" : ["insanitizer-background.js"]
+  }
 }

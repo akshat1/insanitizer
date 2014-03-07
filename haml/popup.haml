@@ -1,0 +1,17 @@
+!!!5
+%html(lang='en-US')
+  %head
+    %meta(name='content' content='text/html')
+    %meta(charset='utf-8')
+    %title Insanitizer
+    %link(type='text/css' rel='stylesheet' href='insanitizer.css')
+    %script(type='text/javascript' src='knockout.js')
+    %script(type='text/javascript' src='insanitizer.js')
+  %body#i-popup(data-bind="css:{busy:isProcessingB}")
+    %h1 Insanitizer
+    .extensionState
+      %div Insanitize web pages
+      %div
+        %input(type="checkbox" data-bind="checked:isExtensionOnB")
+    .controls
+      %button(data-bind="enable:canSaveB, click:saveC") Save

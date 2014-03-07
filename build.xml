@@ -2,8 +2,29 @@
   <description>
     Chrome extension for lulz.
   </description>
+  <target name="clean" description="Remove all generated artifacts.">
+    <delete dir="build" />
+  </target>
   <target name="init" description="Initialise directory structure.">
     <mkdir dir="build"/>
+  </target>
+  <target name="compile-sass" depends="init" description="Compile sass to css">
+    <apply executable="sass" dest="build" failonerror="true">
+        <arg line="--no-cache"/>
+        <arg line="--style expanded"/>
+        <fileset dir="sass" includes="**/*.sass"/>
+        <globmapper from="*.sass" to="*.css" />
+        <srcfile />
+        <targetfile />
+    </apply>
+  </target>
+  <target name="compile-haml" depends="init" description="Compile haml to html">
+    <apply executable="haml" dest="build" failonerror="true">
+        <fileset dir="haml" includes="**/*.haml" />
+        <globmapper from="*.haml" to="../build/*.html" />
+        <srcfile />
+        <targetfile />
+    </apply>
   </target>
   <target name="compile-coffee" depends="init" description="Compile coffee to js">
     <apply executable="coffee" failonerror="true" parallel="true">
@@ -17,11 +38,17 @@
     <copy todir="build">
       <fileset dir="assets">
         <include name="*.png"/>
+        <include name="*.gif"/>
+      </fileset>
+      <fileset dir="json">
+        <include name="*.json"/>
+      </fileset>
+      <fileset dir="js_lib">
+        <include name="*.js"/>
       </fileset>
     </copy>
-    <copy file="manifest.json" tofile="build/manifest.json"/>
   </target>
-  <target name="compile" depends="compile-coffee" description="Compile coffee, haml, sass">
+  <target name="compile" depends="compile-coffee, compile-haml, compile-sass" description="Compile coffee, haml, sass">
   </target>
   <target name="build" depends="compile,copy-assets" description="Build unpacked extension.">
   </target>
