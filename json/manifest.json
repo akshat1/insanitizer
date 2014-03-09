@@ -3,7 +3,7 @@
   "manifest_version" : 2,
   "description"      : "Replace text in webpages for lulz; Inspired by http://xkcd.com/1288/",
   "homepage_url"     : "https://github.com/akshat1/insanitizer",
-  "version"          : "1.0",
+  "version"          : "1.1",
   "icons": {
       "128" : "icon_128.png",
       "32"  : "icon_32.png"

@@ -38,47 +38,54 @@ _NT =
 #we would have to store them as strings and convert them to regexes once
 #they are received.
 replacementMap =
-  "regatta"            : /^navy/gi
-  "these dudes I know" : /^witness/ig
-  "kinda probably"     : /^allegdely/ig
-  "tumblr post"        : /^(new study)/ig
-  "avenge"             : /^(rebuild|recover)/ig
-  "spaaace"            : /^space/ig
-  "virtual boy"        : /^(google glass)/ig
-  "pokedex"            : /^smartphone/ig
-  "atomic"             : /^electric/ig
-  "elf-lord"           : /^(senator|lawmaker)/ig
-  "cat"                : /^car/ig
-  "eating contest"     : /^election/ig
-  "river spirits"      : /^(congressional leaders)/ig
-  "homestar runner"    : /^(homeland security)/ig
-  "chieftain"          : /^(leader|chairman)/ig
-  "tantrum"            : /^sanction/ig
-  "stage whisper"      : /^statement/ig
-  "coterie"            : /^committee/ig
-  "magical"            : /^technical/ig
-  "magic"              : /^(technology|science|tech)/ig
-  "grand council"      : /^(administration|government)/ig
-  "grand pooh-bah"     : /^(president|prime minister)/ig
-  "fairy council"      : /^(senate|senatorial)/ig
-  "noodling"           : /^consulting/ig
-  "noodle"             : /^consult/ig
-  "magic paper"        : /^visa/ig
-  "inter-planetory "   : /^foreign /ig
-  "incantation"        : /^(legislation|bill)/ig
-  "moolah game"        : /^economy/ig
-  "inspecting"         : /^eating/ig
-  "binging on"         : /^drinking/ig
-  "stroll"             : /^(incursion|invasion)/ig
-  "hint at"            : /^recommend/ig
-  "coitus"             : /^conjunction/ig
-  "bros"               : /^allies/ig
-  "bro"                : /^ally/g
-  "IOU"                : /^(loan guarantee|guarantee|loan)/ig
-  "groupies"           : /^members/ig
-  "groupy"             : /^member/ig
-  "soapbox"            : /^facebook/ig
-  "is guilty and everyone knows it" : /^(could not be reached for comment)/ig
+  "regatta"            : /\bnavy/gi
+  "these dudes I know" : /\bwitness/ig
+  "kinda probably"     : /\ballegdely/ig
+  "tumblr post"        : /\b(new study)/ig
+  "avenge"             : /\b(rebuild|recover)/ig
+  "spaaace"            : /\bspace/ig
+  "virtual boy"        : /\b(google glass)/ig
+  "pokedex"            : /\bsmartphone/ig
+  "atomic"             : /\belectric/ig
+  "elf-lord"           : /\bsenator|lawmaker/ig
+  "cat"                : /\bcar/ig
+  "eating contest"     : /\belection/ig
+  "river spirits"      : /\b(congressional leaders)/ig
+  "homestar runner"    : /\b(homeland security)/ig
+  "chieftain"          : /\b(leader|chairman)/ig
+  "tantrum"            : /\bsanction/ig
+  "stage whisper"      : /\bstatement/ig
+  "coterie"            : /committee/ig
+  "magical"            : /\btechnical/ig
+  "magic"              : /\b(technology|science|tech)/ig
+  "grand council"      : /\b(administration|government)/ig
+  "grand pooh-bah"     : /\b(president|prime minister)/ig
+  "fairy council"      : /\b(senate|senatorial)/ig
+  "noodling"           : /\bconsulting/ig
+  "noodle"             : /\bconsult/ig
+  "magic paper"        : /\bvisa/ig
+  "inter-planetory "   : /\bforeign\b/ig
+  "incantation"        : /\blegislation/ig
+  "moolah game"        : /\beconomy/ig
+  "inspecting"         : /\beating/ig
+  "binging on"         : /\bdrinking/ig
+  "stroll"             : /\b(incursion|invasion)/ig
+  "hint at"            : /\brecommend/ig
+  "coitus"             : /\bconjunction/ig
+  "bros"               : /\ballies/ig
+  "bro"                : /\bally/ig
+  "IOU"                : /\b(loan guarantee|guarantee|loan)/ig
+  "groupies"           : /\bmembers/ig
+  "groupy"             : /\bmember/ig
+  "soapbox"            : /\bfacebook/ig
+  "town"                            : /\b(country|territorry|nation)/ig
+  "gambler"                         : /\binvestor\b/ig
+  "gamble"                          : /\binvest\b/ig
+  "tattler"                         : /\breporter\b/ig
+  "is guilty and everyone knows it" : /\b(could not be reached for comment)/ig
+  "fingering"                       : /\bcorruption\b/ig
+  "natural gas"                     : /\bearth's flatulance/ig
+  "aroused"                         : /\bdisappointed\b/ig
 
 execWhenFree = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.setTimeout;
 
@@ -101,7 +108,6 @@ processElement = (elem, depth)->
         nodeVal = nodeVal.replace pattern, replacement
       elem.nodeValue = nodeVal
       elem._originalText = originalText
-      elem.title = originalText
       modifiedNodes.push elem
     else
       unless elem.tagName in ["SCRIPT", "LINK"]
