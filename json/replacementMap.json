@@ -46,3 +46,4 @@
 "fingering"                       : /\bcorruption\b/ig
 "natural gas"                     : /\bearth's flatulance/ig
 "aroused"                         : /\bdisappointed\b/ig
+"race horse"                      : /resource/ig
